@@ -1,0 +1,243 @@
+.header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f3f3f4;
+}
+.header__wrapper {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.menu_btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  width: 32px;
+  height: 32px;
+}
+.menu_btn svg path {
+  fill: #333;
+}
+
+.header__left > ul {
+  height: 100%;
+}
+.header__left > ul li {
+  padding-right: 16px;
+  padding-left: 16px;
+  display: flex;
+  align-items: center;
+  padding: 30px 6px;
+}
+
+.brand_logo {
+  width: 91px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search_box {
+  background-color: #f3f3f4;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+.search_box input {
+  width: 80px;
+  background-color: transparent;
+  outline: none;
+}
+.search_box:hover,
+.search_box:focus {
+  box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+
+.upload_btn {
+  padding: 10px 15px;
+  background-color: var(--brand-color);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.nav_list {
+  display: none;
+}
+
+.nav_list li {
+  position: relative;
+}
+
+.inspiration_link:hover .nav_dropdown {
+  visibility: visible;
+  opacity: 1;
+}
+.nav_dropdown {
+  position: absolute;
+  top: 110%;
+  border-radius: 12px;
+  z-index: 5;
+  left: -28px;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  box-shadow: 0px 10px 70px rgb(0 0 0 / 15%);
+}
+
+.inspiration_types {
+  background: #fff;
+  width: 400px;
+  border-radius: inherit;
+  display: flex;
+  align-items: center;
+}
+.inpiration_type_list {
+  width: 100%;
+  padding: 16px 0;
+}
+
+.inspiration_item {
+  box-sizing: border-box;
+}
+.inspiration_item a {
+  display: flex;
+  align-items: center;
+  margin: 0 22px;
+  padding: 15px 18px;
+  border-radius: 12px;
+  background-color: #fff;
+  transition: background-color 200ms ease;
+}
+
+.inspiration_icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+  margin-right: 16px;
+  border-radius: 6px;
+  transition: background-color 200ms ease;
+}
+
+.inspiration_type_text {
+  max-width: 75%;
+  flex-grow: 1;
+}
+
+.inspiration_title {
+  color: #0d0c22;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.inspiration_type_text p {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.inspiration_item:hover .inspiration_visit_button {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.inspiration_visit_button {
+  margin-right: 8px;
+  opacity: 0;
+  transition: transform 200ms ease-in, opacity 200ms ease-in,
+    -webkit-transform 200ms ease-in;
+}
+
+.purple {
+  color: #724e91;
+}
+.red {
+  color: #ea4c89;
+}
+.green {
+  color: #5cb85c;
+}
+
+.purple:hover .inspiration_icon {
+  background: #7105d024;
+}
+.purple:hover .inspiration_visit_button svg path {
+  fill: #724e91;
+}
+.red:hover .inspiration_icon {
+  background: #ea4c8924;
+}
+
+.red:hover .inspiration_visit_button svg path {
+  fill: #ea4c89;
+}
+.green:hover .inspiration_icon {
+  background: #5cb85c24;
+}
+
+.green:hover .inspiration_visit_button svg path {
+  fill: #5cb85c;
+}
+.yellow {
+  color: #f8c82c;
+}
+
+.yellow:hover .inspiration_icon {
+  background: #f8c82c24;
+}
+
+.yellow:hover .inspiration_visit_button svg path {
+  fill: #f8c82c;
+}
+
+.browse_categories {
+  width: 200px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background: #f8f8f8;
+}
+.browse_categories ul {
+  padding: 24px 0;
+}
+.category_list p {
+  color: #0d0c22;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 9px 36px;
+}
+.category_list li a {
+  color: #6e6d7a;
+  font-weight: 400;
+  padding: 9px 36px;
+  display: flex;
+  align-items: center;
+  font-style: 14px;
+}
+
+.header__right {
+  display: none;
+}
+
+@media screen and (min-width: 1110px) {
+  .nav_list {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 968px) {
+  .header__right {
+    display: flex;
+  }
+  .menu_btn,
+  .mobile_login_btn {
+    display: none;
+  }
+}

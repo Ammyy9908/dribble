@@ -1,0 +1,236 @@
+.container {
+  width: 85%;
+  margin: 45px auto;
+}
+
+.subnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.feed_filter {
+  padding: 10px 15px;
+  border: 1px solid #f3f3f3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  flex: 0 0 135px;
+  justify-content: space-between;
+  position: relative;
+  user-select: none;
+}
+.feed_filter:hover,
+.feed_filter:focus {
+  box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+
+.btn-dropdown-options {
+  position: absolute;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 180px;
+  margin-top: 4px;
+  overflow: auto;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0px 3px 5px rgb(0 0 0 / 4%);
+  z-index: 3;
+}
+.btn-dropdown-options ul {
+  padding: 8px 0;
+}
+.btn-dropdown-options ul li a {
+  padding: 8px 15px;
+  color: #6e6d7a;
+  font-size: 13px;
+  transition: color 200ms ease;
+  display: block;
+}
+.btn-dropdown-options ul li:hover {
+  background-color: #dbdbdeb5;
+}
+
+.active_filter {
+  color: var(--brand-color) !important;
+  font-weight: 600;
+}
+.btn-dropdown-options ul .rule {
+  margin: 5px 0;
+  border-bottom: 1px solid #dbdbde;
+}
+
+.subnav_items {
+  padding: 0 2px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+.subnav_items::-webkit-scrollbar {
+  display: none;
+}
+.subnav_items li {
+  display: inline-block;
+  background: transparent;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+.subnav_items li a {
+  font-weight: 500;
+  transition: color 200ms ease;
+
+  color: var(--dolphin-color);
+  display: inline-block;
+  padding: 10px 12px;
+}
+
+.subnav_items li a.active_tab {
+  border-radius: 8px;
+  background: rgba(13, 12, 34, 0.05);
+  color: #0d0c22;
+}
+
+.filters_button {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #f3f3f3;
+  gap: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.shots {
+  display: grid;
+  margin-top: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-row-gap: 50px;
+  grid-column-gap: 30px;
+}
+
+.hero_section_background {
+  background: #f9f8fd;
+}
+.signed_out_hero {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding-right: 20px;
+  padding-left: 20px;
+  flex-direction: column-reverse;
+}
+.hero_content {
+  display: flex;
+  flex-direction: column;
+  max-width: 624px;
+  text-align: center;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.hero_content h1 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+}
+.hero_content h2 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.signup_btn {
+  color: #fff;
+  background: #ea4c89;
+  padding: 10px 16px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 8px;
+  border: 0;
+  outline: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+.signup_btn:hover {
+  opacity: 0.6;
+}
+
+.hero_image__container {
+  display: flex;
+  flex-direction: column;
+  color: #9e9ea7;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  width: 100%;
+}
+
+.credit_container {
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .signed_out_hero {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 480px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 32px;
+    padding-right: 32px;
+    max-width: 1680px;
+  }
+  .hero_image__container {
+    align-items: flex-end;
+    width: auto;
+  }
+  .hero_content {
+    margin-top: 0;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .hero_content h1 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+}
+
+@media screen and (max-width: 958px) {
+  .subnav_items {
+    order: 3;
+    width: calc(100% + 30px);
+    margin: 15px -15px 0;
+    padding: 15px 0 0;
+    border-top: 1px solid #f3f3f4;
+  }
+  .subnav {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .signed_out_hero {
+    padding-right: 72px;
+    padding-left: 72px;
+  }
+  .hero_content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+  }
+}

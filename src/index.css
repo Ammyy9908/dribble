@@ -1,13 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: FontBlack;
+  src: url("../public/fonts/NeueHaasDisplayBlack.ttf");
+}
+@font-face {
+  font-family: FontBold;
+  src: url("../public/fonts/NeueHaasDisplayBold.ttf");
+}
+
+@font-face {
+  font-family: FontLight;
+  src: url("../public/fonts/NeueHaasDisplayLight.ttf");
+}
+@font-face {
+  font-family: FontMedium;
+  src: url("../public/fonts/NeueHaasDisplayMedium.ttf");
+}
+@font-face {
+  font-family: FontThin;
+  src: url("../public/fonts/NeueHaasDisplayThin.ttf");
+}
+
+:root {
+  --dolphin-color: #6e6d7a;
+  --active-gray: #333333;
+  --brand-color: #ea4c89;
+  --font-black: FontBlack;
+  --font-bold: FontBold;
+  --font-light: FontLight;
+  --font-medium: FontMedium;
+  --font-thin: FontThin;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
