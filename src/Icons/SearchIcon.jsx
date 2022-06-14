@@ -9,7 +9,7 @@ function SearchIcon() {
       viewBox="0 0 16 16"
       fill="none"
       role="img"
-      class="icon site-nav-mobile-search-icon fill-current icon-16"
+      class="site-nav-mobile-search-icon fill-current icon-16"
     >
       <path
         fill-rule="evenodd"
