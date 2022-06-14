@@ -135,7 +135,7 @@ function Footer() {
       </div>
       <div className="footer_divider"></div>
       <div className="footer_bottom">
-        <p className="footer_bottom_copyright">
+        <p className="footer_bottom_copyright text-center">
           © 2021 Dribbble. All rights reserved.
         </p>
         <div className="footer_bottom_right flex items-center gap-5">

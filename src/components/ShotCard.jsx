@@ -5,7 +5,7 @@ import "./ShotCard.css";
 function ShotCard({ thumb, userImage }) {
   return (
     <div className="shot_card">
-      <div className="shot_card_thumb">
+      <div className="shot_card_thumb overflow-hidden">
         <img src={thumb} alt="Shot" />
         <div className="card_overlay">
           <div className="overlay_content">

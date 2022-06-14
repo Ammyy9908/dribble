@@ -1,13 +1,16 @@
 import React from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import MobileNav from "../components/MobileNav";
 import ShotCard from "../components/ShotCard";
 import "./Home.css";
 function Home() {
   const [filterTab, setFilterTab] = React.useState(false);
+  const [menu, setMenu] = React.useState(false);
   return (
-    <div>
-      <Header />
+    <div className={menu && "overflow-hidden"}>
+      <Header menu={menu} setMenu={setMenu} />
+      {menu && <MobileNav />}
 
       <div className="hero_section_background">
         <div className="signed_out_hero">

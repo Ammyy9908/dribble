@@ -1,0 +1,112 @@
+.mobile_nav {
+  display: block;
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  z-index: 3;
+  height: calc(100vh - 60px);
+  overflow: scroll;
+  box-shadow: 0px 20px 35px rgb(13 12 34 / 5%);
+}
+
+.mobile_search_form {
+  position: relative;
+  margin-bottom: 12px;
+}
+.mobile_search_form svg {
+  position: absolute;
+  top: 52%;
+  transform: translate(12px, -50%);
+  color: #9e9ea7;
+  vertical-align: middle;
+}
+.mobile_search_form input {
+  border: 1px solid transparent;
+  padding-right: 32px;
+  padding-left: 32px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 8px;
+  color: #0d0c22;
+  appearance: none;
+  background-color: #f3f3f4;
+  transition: background-color 200ms ease, outline 200ms ease, color 200ms ease,
+    box-shadow 200ms ease, -webkit-box-shadow 200ms ease;
+}
+
+.mobile-nav-dropdown-item {
+  box-sizing: border-box;
+}
+.mobile-nav-dropdown-item input[name="dropdown"] {
+  display: none;
+}
+
+.mobile_nav_dropdown_item {
+  display: block;
+  position: relative;
+  margin-bottom: 0;
+  cursor: pointer;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-size: 18px;
+  color: #6e6d7a;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+}
+.mobile_nav_dropdown_item::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 0;
+  transition: transform 200ms ease;
+  background-color: #6e6d7a;
+  -webkit-mask-image: url("https://cdn.dribbble.com/assets/icons/caret-down-0720176f08f16b736c0687a634519f477133660d21d064e1689a3e12a153fb81.svg");
+  mask-image: url("https://cdn.dribbble.com/assets/icons/caret-down-0720176f08f16b736c0687a634519f477133660d21d064e1689a3e12a153fb81.svg");
+}
+
+.mobile-nav-dropdown-item
+  input[name="dropdown"]:checked
+  ~ .mobile_nav_dropdown_list {
+  max-height: 600px;
+}
+
+.mobile-nav-dropdown-item
+  input[name="dropdown"]:checked
+  ~ .mobile_nav_dropdown_item::after {
+  transform: rotate(180deg);
+}
+.mobile_nav_dropdown_list {
+  position: relative;
+  height: auto;
+  max-height: 0;
+  font-weight: 400;
+  line-height: 28px;
+  overflow: hidden;
+}
+.mobile_nav_dropdown_list_container {
+  margin: 15px 0;
+  padding-left: 32px;
+  border-left: 1px solid #e7e7e9;
+}
+.mobile_nav_dropdown_list_container a {
+  display: block;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #6e6d7a;
+}
+
+@media screen and (max-width: 499px) {
+  .mobile_nav {
+    padding: 23px 23px 120px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mobile_nav {
+    display: none;
+  }
+}
