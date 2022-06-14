@@ -23,7 +23,9 @@
   user-select: none;
 }
 .feed_filter:hover,
-.feed_filter:focus {
+.feed_filter:focus,
+.filters_button:hover,
+.filters_button:focus {
   box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
 }
 
@@ -165,6 +167,7 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
+  margin-bottom: 35px;
 }
 .signup_btn:hover {
   opacity: 0.6;
@@ -185,6 +188,86 @@
   margin-top: 20px;
 }
 
+.shots__filters {
+  margin-top: 32px;
+  position: relative;
+}
+
+.shots_filter_form {
+  display: block;
+  align-items: flex-start;
+  justify-content: space-between;
+  transition: max-width 0.2s ease-in-out;
+  flex-direction: column;
+  width: 100%;
+}
+.shots_filter_form label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 10px;
+  color: #0d0c22;
+}
+.find-shot-tags,
+.find-shot-colors,
+.find-shot-time,
+.find-shot-downloads {
+  flex: 1;
+  margin: 0 16px;
+}
+.find-shot-tags > a,
+.find-shot-colors > a,
+.find-shot-time > a,
+.find-shot-downloads > a {
+  padding-top: 2px;
+  float: right;
+  font-size: 12px;
+}
+
+.input__container {
+  position: relative;
+}
+.input__container svg {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  width: 16px;
+  fill: #9e9ea7;
+  position: absolute;
+  top: 52%;
+  transform: translate(0px, -50%);
+  color: #9e9ea7;
+  vertical-align: middle;
+}
+.input__container input {
+  padding-left: 44px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  padding: 10px 44px;
+  height: 40px;
+  width: 100%;
+  background-color: #f3f3f4;
+  border-radius: 8px;
+}
+
+.btn__dropdown {
+  display: block;
+  white-space: nowrap;
+  position: relative;
+}
+.btn__dropdown > a {
+  width: 100%;
+  transition: color 200ms ease;
+  color: #6e6d7a;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  background: #f3f3f4;
+  height: 40px;
+  padding: 10px 16px;
+  display: block;
+  border-radius: 8px;
+}
 @media screen and (min-width: 768px) {
   .signed_out_hero {
     flex-direction: row;
@@ -211,7 +294,18 @@
   }
 }
 
+@media screen and (min-width: 968px) {
+  .shots_filter_form {
+    flex-direction: row;
+    margin: 0 -16px;
+    display: flex;
+  }
+}
 @media screen and (max-width: 958px) {
+  .btn__dropdown {
+    z-index: 4;
+  }
+
   .subnav_items {
     order: 3;
     width: calc(100% + 30px);
@@ -219,6 +313,7 @@
     padding: 15px 0 0;
     border-top: 1px solid #f3f3f4;
   }
+
   .subnav {
     flex-wrap: wrap;
   }

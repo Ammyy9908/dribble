@@ -1,12 +1,16 @@
 import React from "react";
+import Filters from "../components/Filters";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import MobileNav from "../components/MobileNav";
 import ShotCard from "../components/ShotCard";
+import PalleteIcon from "../Icons/PalleteIcon";
+import SearchIcon from "../Icons/SearchIcon";
 import "./Home.css";
 function Home() {
   const [filterTab, setFilterTab] = React.useState(false);
   const [menu, setMenu] = React.useState(false);
+  const [filters, setFilters] = React.useState(false);
   return (
     <div className={menu && "overflow-hidden"}>
       <Header menu={menu} setMenu={setMenu} />
@@ -115,14 +119,20 @@ function Home() {
                 <a href="#">Web Design</a>
               </li>
             </ul>
-            <div className="filters_button">
+            <div
+              className="filters_button"
+              tabIndex={1}
+              onClick={() => {
+                setFilters(!filters);
+              }}
+            >
               <span>
                 <img src="/assets/filter.svg" alt="filter-icon" />
               </span>
               <p>Filters</p>
             </div>
           </div>
-
+          {filters && <Filters />}
           <div className="shots">
             <ShotCard
               thumb={"/assets/card1.png"}
