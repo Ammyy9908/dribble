@@ -1,0 +1,126 @@
+.search_header {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search__hero {
+  position: relative;
+  width: 100%;
+  background-color: #fd507e;
+  min-height: 250px;
+  max-height: 360px;
+}
+.search__hero::before {
+  content: "";
+  padding-top: 25%;
+}
+
+.search__hero_image__box {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  top: 0;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+
+.search_results {
+  z-index: 1;
+  width: 100%;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.search_input_container {
+  max-width: 675px;
+  width: 100%;
+  z-index: 1;
+  margin: 0 auto;
+  transform: translateY(-50%);
+}
+
+.search_input_with_dropdown {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 64px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 8px 20px rgb(0 0 0 / 6%);
+}
+
+.search_input_with_dropdown .search__left {
+  display: flex;
+  position: relative;
+  flex: 1;
+  align-items: center;
+  padding-left: 28px;
+  height: 100%;
+}
+.search_input_with_dropdown .search__left form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  bottom: 0;
+}
+.search_input_with_dropdown .search__left form input {
+  padding-left: 60px;
+  height: 100%;
+  font-size: 16px;
+  background-color: transparent;
+  padding-right: 24px;
+  width: 100%;
+  outline: 0;
+}
+
+.search__divider {
+  width: 2px;
+  height: 50%;
+  background: #e7e7e9;
+  margin-right: 24px;
+}
+
+.search_btn_dropdown {
+  min-width: 84px;
+  margin-right: 36px;
+  white-space: nowrap;
+}
+.btn__dropdown_link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btn__dropdown_link span {
+  font-weight: 500;
+}
+
+.search_suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.search_suggestion_heading {
+  line-height: 20px;
+  color: #6e6d7a;
+  font-weight: 500;
+  font-size: 14px;
+  margin-right: 23px;
+}
+.search-result-suggestion {
+  color: #fd507e;
+  margin-right: 16px;
+  padding-bottom: 4px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .search_header {
+    padding: 0;
+  }
+}

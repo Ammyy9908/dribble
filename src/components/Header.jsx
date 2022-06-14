@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import BlogIcon from "../Icons/BlogIcon";
 import CalenderIcon from "../Icons/CalenderIcon";
 import CupIcon from "../Icons/CupIcon";
@@ -11,6 +12,7 @@ import MenuCloseIcon from "../Icons/MenuCloseIcon";
 import MenuIcon from "../Icons/MenuIcon";
 import PlayOffIcon from "../Icons/PlayOffIcon";
 import ProfileIcon from "../Icons/ProfileIcon";
+import SearchIcon from "../Icons/SearchIcon";
 import styles from "./Header.module.css";
 function Header({ setMenu, menu }) {
   return (
@@ -22,9 +24,9 @@ function Header({ setMenu, menu }) {
           {menu ? <MenuCloseIcon /> : <MenuIcon />}
         </button>
         <div className={`${styles.header__left}items-center gap-10 flex`}>
-          <a href="#brand" className={styles.brand_logo}>
+          <Link to="/" className={styles.brand_logo}>
             <img src="/assets/logo_desktop.png" alt="" />
-          </a>
+          </Link>
           <ul className={`${styles.nav_list}  items-center gap-5`}>
             <li className={styles.inspiration__link}>
               <a
@@ -279,7 +281,7 @@ function Header({ setMenu, menu }) {
             </li>
           </ul>
         </div>
-        <div className={`${styles.header__right}  items-center gap-5`}>
+        {/* <div className={`${styles.header__right}  items-center gap-5`}>
           <div
             className={`${styles.search_box} flex items-center gap-2`}
             tabIndex={1}
@@ -312,6 +314,21 @@ function Header({ setMenu, menu }) {
           <a href="#upload" className={styles.upload_btn}>
             Upload
           </a>
+        </div> */}
+        <div className={`${styles.non_auth_nav} flex gap-2 items-center`}>
+          <div className={`${styles.non_auth_item} mr-5`}>
+            <Link to="/search">
+              <SearchIcon />
+            </Link>
+          </div>
+          <div className={`${styles.non_auth_item} mr-5`}>
+            <Link to="/session/new">Sign in</Link>
+          </div>
+          <div className={styles.non_auth_item}>
+            <Link to="/signup/new" className={styles.signup_btn}>
+              Share my work
+            </Link>
+          </div>
         </div>
         <a href="#login" className={styles.mobile_login_btn}>
           Login

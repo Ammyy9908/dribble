@@ -260,6 +260,31 @@
   display: none;
 }
 
+.non_auth_nav {
+  display: none;
+}
+
+.non_auth_item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.signup_btn {
+  display: inline-block;
+  height: 40px;
+  transition: color 200ms ease;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  background: #ea4c89;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
 @media screen and (min-width: 1110px) {
   .nav_list {
     display: flex;
@@ -276,5 +301,8 @@
   }
   .header {
     height: 80px;
+  }
+  .non_auth_nav {
+    display: flex;
   }
 }
