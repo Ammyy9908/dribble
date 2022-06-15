@@ -331,9 +331,9 @@ function Header({ setMenu, menu }) {
             </Link>
           </div>
         </div>
-        <a href="#login" className={styles.mobile_login_btn}>
+        <Link to="/session/new" className={styles.mobile_login_btn}>
           Login
-        </a>
+        </Link>
       </div>
     </header>
   );

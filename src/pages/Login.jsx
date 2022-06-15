@@ -5,7 +5,7 @@ import TwitterIcon from "../Icons/TwitterIcon";
 import "./Login.css";
 function Login() {
   return (
-    <div className="sign-in flex h-full">
+    <div className="sign-in">
       <div className="auth_sidebar">
         <div className="auth_sidebar_content">
           <div className="auth_sidebar_header">
