@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -7,6 +8,10 @@ import SearchIcon from "../Icons/SearchIcon";
 import "./Search.css";
 function Search() {
   const [menu, setMenu] = React.useState(false);
+  const [filter, setFilter] = React.useState(false);
+  const [active_filter, setActiveFilter] = React.useState(0);
+
+  const filters = ["Shots", "Marketplace", "Members", "Teams"];
   return (
     <div>
       <Header menu={menu} setMenu={setMenu} />
@@ -18,6 +23,10 @@ function Search() {
               src="https://cdn.dribbble.com/assets/searches/search-header-800-1f49142870a5c1428edf0f570465ce9114ca4dc76f9d645bcf5c786a18dc697f.png"
               alt="dribble_hero"
             />
+          </div>
+          <div className="search_hero_text">
+            <h1>Search Dribbble</h1>
+            <p>18,400,000+ images from thousands of inspirational designers</p>
           </div>
         </div>
         <div className="search_results">
@@ -35,14 +44,78 @@ function Search() {
                 </form>
               </div>
               <div className="search__divider"></div>
-              <span className="search_btn_dropdown">
+              <span
+                className="search_btn_dropdown"
+                tabIndex={1}
+                onClick={() => {
+                  setFilter(!filter);
+                }}
+                // onBlur={() => {
+                //   setFilter(false);
+                // }}
+              >
                 <a href="#" className="btn__dropdown_link">
-                  <span>Shots</span>
-                  <span>
+                  <span className="mx-3">{filters[active_filter]}</span>
+                  <span
+                    style={{
+                      transform: `${
+                        filter ? "rotate(180deg)" : "rotate(0deg)"
+                      }`,
+                      transition: "transform 0.3s ease-in-out",
+                    }}
+                  >
                     {" "}
                     <img src="/assets/down_arrow.svg" alt="arrow_down" />
                   </span>
                 </a>
+                {filter && (
+                  <div className="btn_dropdown_options">
+                    <ul>
+                      <li>
+                        <button
+                          className={active_filter === 0 && "active"}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            console.log("clicked");
+                            setActiveFilter(0);
+                          }}
+                        >
+                          Shots
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          onClick={() => {
+                            setActiveFilter(1);
+                          }}
+                          className={active_filter === 1 && "active"}
+                        >
+                          Marketplace
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          onClick={() => {
+                            setActiveFilter(2);
+                          }}
+                          className={active_filter === 2 && "active"}
+                        >
+                          Members
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          onClick={() => {
+                            setActiveFilter(3);
+                          }}
+                          className={active_filter === 3 && "active"}
+                        >
+                          Teams
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                )}
               </span>
             </div>
           </div>
