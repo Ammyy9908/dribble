@@ -1,18 +1,35 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { connect } from "react-redux";
 import Filters from "../components/Filters";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import MobileNav from "../components/MobileNav";
 import ShotCard from "../components/ShotCard";
+import WorkToast from "../components/WorkToast";
+import useOneTapLogin from "../hooks/useOneTapLogin";
+import { setUser } from "../redux/actions/_appAction";
 import "./Home.css";
-function Home() {
+function Home({ setUser }) {
   const [filterTab, setFilterTab] = React.useState(false);
   const [menu, setMenu] = React.useState(false);
   const [filters, setFilters] = React.useState(false);
+  const [work, setWork] = React.useState(false);
+  const [toast, setToast] = React.useState(false);
+  const user = useOneTapLogin();
+  console.log(user);
+  setUser(user);
+  console.log(toast, work);
+
   return (
     <div className={menu && "overflow-hidden"}>
-      <Header menu={menu} setMenu={setMenu} />
+      <Header
+        menu={menu}
+        setMenu={setMenu}
+        setToast={setToast}
+        work={work}
+        setWork={setWork}
+      />
       {menu && <MobileNav />}
 
       <div className="hero_section_background">
@@ -233,8 +250,13 @@ function Home() {
         </div>
       </div>
       <Footer />
+      {toast && <WorkToast work={work} setToast={setToast} toast={toast} />}
     </div>
   );
 }
 
-export default Home;
+const mapDispatchToProps = (dispatch) => ({
+  setUser: (user) => dispatch(setUser(user)),
+});
+
+export default connect(null, mapDispatchToProps)(Home);

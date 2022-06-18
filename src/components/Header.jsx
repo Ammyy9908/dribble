@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import BlogIcon from "../Icons/BlogIcon";
 import CalenderIcon from "../Icons/CalenderIcon";
@@ -14,8 +15,9 @@ import MenuIcon from "../Icons/MenuIcon";
 import PlayOffIcon from "../Icons/PlayOffIcon";
 import ProfileIcon from "../Icons/ProfileIcon";
 import SearchIcon from "../Icons/SearchIcon";
+import TickIcon from "../Icons/TickIcon";
 import styles from "./Header.module.css";
-function Header({ setMenu, menu }) {
+function Header({ setMenu, menu, user, setToast, work, setWork }) {
   return (
     <header className={styles.header}>
       <div
@@ -282,61 +284,140 @@ function Header({ setMenu, menu }) {
             </li>
           </ul>
         </div>
-        {/* <div className={`${styles.header__right}  items-center gap-5`}>
-          <div
-            className={`${styles.search_box} flex items-center gap-2`}
-            tabIndex={1}
-          >
-            <div className="search_icon">
-              <img src="/assets/search.svg" alt="searc-icon" />
+        {user ? (
+          <div className={`${styles.header__right}  items-center gap-5`}>
+            <div
+              className={`${styles.search_box} flex items-center gap-2`}
+              tabIndex={1}
+            >
+              <div className="search_icon">
+                <img src="/assets/search.svg" alt="searc-icon" />
+              </div>
+              <input
+                type="text"
+                name="keyword"
+                id="keyword"
+                placeholder="Search"
+                autoFocus
+              />
             </div>
-            <input
-              type="text"
-              name="keyword"
-              id="keyword"
-              placeholder="Search"
-              autoFocus
-            />
-          </div>
-          <div className="nav_buttons flex items-center gap-5">
+            <div className="nav_buttons flex items-center gap-5">
+              <button className={styles.work_button}>
+                <img src="/assets/work.svg" alt="work-icon" />
+                {work && (
+                  <div className={styles.work__status}>
+                    <TickIcon />
+                  </div>
+                )}
+                <div className={styles.work__pref_dropdown}>
+                  <div className={styles.work_avalability_toogle}>
+                    <span className={styles.pre_toggle_text}>
+                      Not available
+                    </span>
+                    <label className={styles.toggle}>
+                      <input
+                        type="checkbox"
+                        value={true}
+                        onChange={() => {
+                          setWork(!work);
+                          setToast(true);
+                        }}
+                      />
+                      <div className={styles.toggle_control}></div>
+                    </label>
+                    <span className="toggle_text">Available for work</span>
+                  </div>
+                  <hr />
+
+                  <ul className={styles.work_preferences_list}>
+                    <li>
+                      <a href="#">Edit work preferences</a>
+                    </li>
+                    <li>
+                      <a href="#">Add Video Presentation</a>
+                    </li>
+                  </ul>
+                </div>
+              </button>
+            </div>
             <a href="#">
+              <img
+                src={user.picture}
+                alt="avatar-icon"
+                className={styles.user__avatar}
+              />
+            </a>
+            <a href="#upload" className={styles.upload_btn}>
+              Upload
+            </a>
+          </div>
+        ) : (
+          <div className={`${styles.non_auth_nav} flex gap-2 items-center`}>
+            <div className={`${styles.non_auth_item} mr-5`}>
+              <Link to="/search">
+                <SearchIcon />
+              </Link>
+            </div>
+            <div className={`${styles.non_auth_item} mr-5`}>
+              <Link to="/session/new">Sign in</Link>
+            </div>
+            <div className={styles.non_auth_item}>
+              <Link to="/signup/new" className={styles.signup_btn}>
+                Share my work
+              </Link>
+            </div>
+          </div>
+        )}
+        <div className={styles.mobile_right_nav}>
+          {!user ? (
+            <Link to="/session/new" className={styles.mobile_login_btn}>
+              Login
+            </Link>
+          ) : (
+            <button className={styles.work_button}>
               <img src="/assets/work.svg" alt="work-icon" />
-            </a>
-            <a href="#">
-              <img src="/assets/message.svg" alt="heart-icon" />
-            </a>
-            <a href="#">
-              <img src="/assets/activity.svg" alt="activity-icon" />
-            </a>
-          </div>
-          <a href="#">
-            <img src="/assets/avatar.png" alt="avatar-icon" />
-          </a>
-          <a href="#upload" className={styles.upload_btn}>
-            Upload
-          </a>
-        </div> */}
-        <div className={`${styles.non_auth_nav} flex gap-2 items-center`}>
-          <div className={`${styles.non_auth_item} mr-5`}>
-            <Link to="/search">
-              <SearchIcon />
-            </Link>
-          </div>
-          <div className={`${styles.non_auth_item} mr-5`}>
-            <Link to="/session/new">Sign in</Link>
-          </div>
-          <div className={styles.non_auth_item}>
-            <Link to="/signup/new" className={styles.signup_btn}>
-              Share my work
-            </Link>
-          </div>
+              {work && (
+                <div className={styles.work__status}>
+                  <TickIcon />
+                </div>
+              )}
+              <div className={styles.work__pref_dropdown}>
+                <div className={styles.work_avalability_toogle}>
+                  <span className={styles.pre_toggle_text}>Not available</span>
+                  <label className={styles.toggle}>
+                    <input
+                      type="checkbox"
+                      value={true}
+                      onChange={() => {
+                        setWork(!work);
+                        setToast(true);
+                      }}
+                    />
+                    <div className={styles.toggle_control}></div>
+                  </label>
+                  <span className="toggle_text">Available for work</span>
+                </div>
+                <hr />
+
+                <ul className={styles.work_preferences_list}>
+                  <li>
+                    <a href="#">Edit work preferences</a>
+                  </li>
+                  <li>
+                    <a href="#">Add Video Presentation</a>
+                  </li>
+                </ul>
+              </div>
+            </button>
+          )}
         </div>
-        <Link to="/session/new" className={styles.mobile_login_btn}>
-          Login
-        </Link>
       </div>
     </header>
   );
 }
 
-export default Header;
+const mapStateToProps = (state) => ({
+  user: state.appReducer.user,
+});
+
+export default connect(mapStateToProps, null)(Header);

@@ -1,0 +1,22 @@
+.work_toast {
+  position: fixed;
+  min-width: 315px;
+  bottom: -555px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 88;
+  opacity: 0.9;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: #0000008d;
+  transition: all 0.3s ease-in-out;
+}
+.toast_enable {
+  bottom: 55px;
+}
+
+.work_toast_icon {
+  background-color: rgb(2, 146, 98);
+  padding: 5px;
+  border-radius: 50%;
+}

@@ -1,9 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import GoogleLogin from "react-google-login";
+import { Link, useNavigate } from "react-router-dom";
+import useOneTapLogin from "../hooks/useOneTapLogin";
 import BrandIcon from "../Icons/BrandIcon";
 import TwitterIcon from "../Icons/TwitterIcon";
 import "./Login.css";
 function Login() {
+  const user = useOneTapLogin();
+  let navigate = useNavigate();
+  if (user) {
+    navigate("/");
+  }
   return (
     <div className="sign-in">
       <div className="auth_sidebar">
@@ -40,7 +47,7 @@ function Login() {
           <div className="auth__content">
             <h2>Sign in to dribbble</h2>
             <div className="auth_connetion flex gap-2 items-center mb-10">
-              <div className="google_button">Login with Google</div>
+              <div className="buttonDiv"></div>
               <a href="#twitter_btn" className="tweeter_btn">
                 <TwitterIcon />
               </a>
